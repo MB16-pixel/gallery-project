@@ -1,11 +1,11 @@
 .container{
-  background-color: black;
+  background-color: rgba(240, 240, 240);
   color: white;
   height: 100vh;
   padding: 1rem;
 }
 
 button{
-  background-color: green;
+  background-color: rgba(215, 215, 215);
   padding: 0.25rem;
 }
