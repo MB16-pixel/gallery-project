@@ -1,11 +1,24 @@
 .container{
   background-color: rgba(240, 240, 240);
-  color: white;
+  color: black;
   height: 100vh;
   padding: 1rem;
+  overflow: auto;
 }
 
 button{
   background-color: rgba(215, 215, 215);
   padding: 0.25rem;
+}
+
+.pictures{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10rem;
+}
+
+.images{
+  height: 10rem;
+  width: 10rem;
 }
