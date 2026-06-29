@@ -1,28 +1,28 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import axios from 'axios'
+import Cards from './components/Cards';
 function App() {
   
   const [userData,setUserData] = useState([]);
+  const [index, setIndex] = useState(1)
 
-  const getData = async () =>{
-    const response = await axios.get("https://picsum.photos/v2/list?page=2&limit=15");
-    setUserData(response.data);
-    console.log(response)
-  }
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get(`https://picsum.photos/v2/list?page=${index}&limit=15`);
+      setUserData(response.data);
+      console.log(response)
+    }
 
-  useEffect(function(){
-    getData();
-  },[])
+    fetchData();
+  }, [index])
 
-  let printUserData = "No data available";
+  let printUserData = <h3 className='loading'>Loading...</h3>;
 
   if(userData.length>0){
-    printUserData = userData.map(function(elem,idx){
+    printUserData = userData.map(function(elem){
       return(
-        <a href={elem.url} target='_blank'>
-          <img className="images" src={elem.download_url} alt="" key={idx} />
-        </a>
+        <Cards elem={elem}/>
       )
     })
   }
@@ -34,8 +34,20 @@ function App() {
         {printUserData}
       </div>
       <div className='btn'>
-        <button >Back</button>
-        <button>Next</button>
+        <button onClick={()=>{
+          if(index>1){
+            setIndex(index-1)
+            setUserData([])
+          }
+        }}>
+        Back</button>
+        <h4>Page {index} </h4>
+        <button onClick={()=>{
+          setIndex(index+1)
+          setUserData([])
+        }}>
+        Next</button>
+          
       </div>
     </div>
 
