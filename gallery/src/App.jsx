@@ -34,7 +34,9 @@ function App() {
         {printUserData}
       </div>
       <div className='btn'>
-        <button onClick={()=>{
+        <button 
+        style={{opacity: index==1?0.5:1}}
+        onClick={()=>{
           if(index>1){
             setIndex(index-1)
             setUserData([])
