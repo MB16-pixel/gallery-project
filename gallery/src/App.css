@@ -13,12 +13,13 @@ button{
 
 .pictures{
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  gap: 10rem;
+  
 }
 
 .images{
-  height: 10rem;
-  width: 10rem;
+  height: 20rem;
+  width: 20rem;
+  padding: 4px;
+  border-radius: 5%;
 }
