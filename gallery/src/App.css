@@ -1,0 +1,11 @@
+.container{
+  background-color: black;
+  color: white;
+  height: 100vh;
+  padding: 1rem;
+}
+
+button{
+  background-color: green;
+  padding: 0.25rem;
+}
